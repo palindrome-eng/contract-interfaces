@@ -23,14 +23,14 @@ Amounts are in **base units** (all tokens use **6 decimals** precision).
 ### Strategy 1 — USDC+
 
 ```rust
-// Discriminator: sha256("global:mint_strategy1")[..8]
+// Discriminator: [0x70, 0xd1, 0x1b, 0x44, 0x08, 0x37, 0xb3, 0xf8]
 pub fn mint_strategy1<'info>(
     ctx: Context<'_, '_, 'info, 'info, YieldAggregator<'info>>,
     usdc_deposit_amount: u64,   // amount of USDC to deposit
     min_receipt_receive: u64,   // minimum USDC+ output accepted (slippage protection)
 ) -> Result<()>
 
-// Discriminator: sha256("global:redeem_strategy1")[..8]
+// Discriminator: [0xd7, 0x95, 0xdf, 0x3a, 0xad, 0x5d, 0x5a, 0xc3]
 pub fn redeem_strategy1<'info>(
     ctx: Context<'_, '_, 'info, 'info, YieldAggregator<'info>>,
     receipt_burn_amount: u64,   // amount of USDC+ to burn
@@ -41,14 +41,14 @@ pub fn redeem_strategy1<'info>(
 ### Strategy 2 — USDT+
 
 ```rust
-// Discriminator: sha256("global:mint_strategy2")[..8]
+// Discriminator: [0xe5, 0x40, 0x2d, 0x61, 0x89, 0xb8, 0xd3, 0xc8]
 pub fn mint_strategy2<'info>(
     ctx: Context<'_, '_, 'info, 'info, YieldAggregator<'info>>,
     usdt_deposit_amount: u64,   // amount of USDT to deposit
     min_receipt_receive: u64,   // minimum USDT+ output accepted (slippage protection)
 ) -> Result<()>
 
-// Discriminator: sha256("global:redeem_strategy2")[..8]
+// Discriminator: [0x60, 0xea, 0xf6, 0x8c, 0x1f, 0x0c, 0x19, 0xda]
 pub fn redeem_strategy2<'info>(
     ctx: Context<'_, '_, 'info, 'info, YieldAggregator<'info>>,
     receipt_burn_amount: u64,   // amount of USDT+ to burn
