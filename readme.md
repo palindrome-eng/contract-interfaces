@@ -78,19 +78,20 @@ If passing `admin_permissions` as `None`, set this entry to the Reflect program 
 | 1 | `user` | ✅ | ✅ | User interacting with the strategy |
 | 2 | `admin_permissions` | ❌ | ❌ | Optional credentials account (or program ID if none) |
 | 3 | `main` | ✅ | ❌ | Main PDA — seeds: `["main"]`, program ID |
-| 4 | `strategy_controller` | ✅ | ❌ | Strategy controller PDA — seeds: `["dex_controller", <strategy_index>]`, program ID |
-| 5 | `receipt_mint` | ✅ | ❌ | Receipt token mint (USDC+ or USDT+) |
-| 6 | `user_receipt_ata` | ✅ | ❌ | User's receipt token ATA (derived from user + receipt mint) |
-| 7 | `user_earn_ata` | ✅ | ❌ | User's earn token ATA (derived from user + USDC/USDT mint) |
-| 8 | `strategy_controller_earn_token_account` | ✅ | ❌ | Controller's earn token ATA (derived from controller + USDC/USDT mint) |
-| 9 | `token_program` | ❌ | ❌ | SPL Token program — `TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA` |
-| 10 | `associated_token_program` | ❌ | ❌ | Associated Token program — `ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL` |
-| 11 | `instruction_sysvar_account` | ❌ | ❌ | Sysvar Instructions — `Sysvar1nstructions1111111111111111111111111` |
-| 12 | `system_program` | ❌ | ❌ | System program — `11111111111111111111111111111111` |
+| 4 | `pool_registry` | ❌ | ❌ | Pool registry PDA — `3ouWzFhQdtnDXX9aEcZappeDZ65PnqCPoWsRw1qkdFiF` |
+| 5 | `strategy_controller` | ✅ | ❌ | Strategy controller PDA — seeds: `["dex_controller", <strategy_index>]`, program ID |
+| 6 | `receipt_mint` | ✅ | ❌ | Receipt token mint (USDC+ or USDT+) |
+| 7 | `user_receipt_ata` | ✅ | ❌ | User's receipt token ATA (derived from user + receipt mint) |
+| 8 | `user_earn_ata` | ✅ | ❌ | User's earn token ATA (derived from user + USDC/USDT mint) |
+| 9 | `strategy_controller_earn_token_account` | ✅ | ❌ | Controller's earn token ATA (derived from controller + USDC/USDT mint) |
+| 10 | `token_program` | ❌ | ❌ | SPL Token program — `TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA` |
+| 11 | `associated_token_program` | ❌ | ❌ | Associated Token program — `ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL` |
+| 12 | `instruction_sysvar_account` | ❌ | ❌ | Sysvar Instructions — `Sysvar1nstructions1111111111111111111111111` |
+| 13 | `system_program` | ❌ | ❌ | System program — `11111111111111111111111111111111` |
 
 ### Remaining Accounts
 
-All accounts related to the underlying yield venues (Drift, Jupiter Lend, Kamino, etc.) are passed as **remaining accounts** after the 12 fixed accounts above. These are strategy-specific and include protocol state, market accounts, vaults, oracles, and program IDs for each venue the capital conductor routes through. 
+All accounts related to the underlying yield venues (Drift, Jupiter Lend, Kamino, etc.) are passed as **remaining accounts** after the 13 fixed accounts above. These are strategy-specific and include protocol state, market accounts, vaults, oracles, and program IDs for each venue the capital conductor routes through. 
 
 **Accounts in the remianing can be provided in any order.**
 
@@ -98,18 +99,12 @@ The remaining accounts can be obtained using the [`reflect-exchange-rates`](http
 
 **USDC+ (Strategy 1):**
 ```rust
-use reflect_exchange_rates::accounts_api::{
-    get_supply_change_accounts_usdc,
-    get_supply_change_accounts_usdc_with_config,
-};
+use reflect_exchange_rates::accounts_api::get_supply_change_accounts_usdc;
 ```
 
 **USDT+ (Strategy 2):**
 ```rust
-use reflect_exchange_rates::accounts_api::{
-    get_supply_change_accounts_usdt,
-    get_supply_change_accounts_usdt_with_config,
-};
+use reflect_exchange_rates::accounts_api::get_supply_change_accounts_usdt;
 ```
 
 
@@ -134,7 +129,8 @@ use reflect_exchange_rates::accounts_api::{
 
 ### PDA Derivation
 
-| PDA | Seeds |
-| --- | ----- |
-| Main | `["main"]` + program ID |
-| Strategy Controller | `["dex_controller", <strategy_index as u8>]` + program ID |
+| PDA | Seeds | Address |
+| --- | ----- | ------- |
+| Main | `["main"]` + program ID | `4BXzppSAgWDHmcN7AwMAmDphJj3BFdbCFo3Sos2Vms6v` |
+| Pool Registry | `["pool_registry", 0u8]` + program ID | `3ouWzFhQdtnDXX9aEcZappeDZ65PnqCPoWsRw1qkdFiF` |
+| Strategy Controller | `["dex_controller", <strategy_index as u8>]` + program ID | |
