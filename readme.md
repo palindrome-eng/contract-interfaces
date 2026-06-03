@@ -11,7 +11,8 @@ the index and the conventions shared across all of them.
 | ------- | ------------- | ------ |
 | `reflect-core` | [programs/reflect-core.md](./programs/reflect-core.md) | ✅ user-facing flows documented |
 | `reflect-proxy-program` | [programs/reflect-proxy-program.md](./programs/reflect-proxy-program.md) | ✅ documented |
-| `insurance` | [programs/insurance.md](./programs/insurance.md) | 🚧 stub |
+| `rlp` | [programs/rlp.md](./programs/rlp.md) | ✅ documented |
+| `reflect-tranches` | [programs/reflect-tranches.md](./programs/reflect-tranches.md) | ✅ orchestration guide |
 | `kamino-pool-wrapper` | [programs/kamino-pool-wrapper.md](./programs/kamino-pool-wrapper.md) | ⏸ deferred — not yet public |
 
 ## Conventions
