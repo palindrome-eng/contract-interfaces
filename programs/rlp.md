@@ -14,8 +14,6 @@ RLP is the **junior tranche / insurance backstop** in the [reflect-tranches](./r
 | ----------- | ------- |
 | Production (deployed) | `rhLMe6vyM1wVLJaxrWUckVmPxSia58nSWZRDtYQow6D` |
 
-> Note: the reflect-tranches orchestration layer (`@reflectmoney/insurance` SDK and its README) still references the stale address `rLPmw7RxwLbArmZnYRFDBNKCd18vCkPjCB5pouwBAct` — that SDK/README should be updated to the deployed address above.
-
 ## Source of truth
 
 Discriminators, account orderings, and arguments are taken from the program's **Anchor IDL** (`rlp/target/idl/rlp.json`) and generated SDK (`rlp/sdk`). 8-byte Anchor discriminators. Regenerate the IDL/SDK and re-derive this doc when the program changes.

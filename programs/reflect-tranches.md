@@ -13,8 +13,6 @@ Reflect Tranches turns any yield-bearing stablecoin (e.g. **USDC+**) into **seni
 
 A senior holder gets reduced-but-protected yield; a junior holder earns their own yield **plus** the senior's redirected fee, but absorbs losses first via RLP slashing.
 
-> Program IDs are defined in each program's doc. This orchestration layer's SDK/README hard-code stale program addresses that differ from the deployed programs — use the addresses in the program docs.
-
 ## How it composes
 
 **Yield routing (periodic crank):**
